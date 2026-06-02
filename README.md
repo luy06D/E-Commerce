@@ -1,4 +1,4 @@
-# MoneyFlow
+# E-Commerce
 
 ## Construido con 🛠️
 
@@ -13,13 +13,11 @@ _Estas son las herramientas utilizadas en este proyecto._
 ### Realizar la migración ⚙️
 
 _Abre la terminal de VS 2026 eh ingresa el siguiente comando_
-
 ```
 Add-Migration FirstMigration
 ```
 
-_Finalizamos la migracion con siguiente comando_
-
+_Finalizamos la migracion con siguiente comando para la creacion de la BD_
 ```
 Update-Database
 ```
