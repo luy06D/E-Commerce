@@ -1,4 +1,4 @@
-﻿@model List<Category>
+﻿@model List<CategoryVM>
 
 <div class="row justify-content-between mt-4">
     <div class="col-4">
@@ -24,8 +24,8 @@
             <tr>
                 <td>@item.Name</td>
                 <td style="width:120px" >
-                    <a href="#" class="btn btn-sm btn-warning">edit</a>
-                    <button class="btn btn-sm btn-danger">delete</button>
+                    <a href="#" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>
         }
@@ -33,3 +33,4 @@
     </tbody>
     
 </table>
+
