@@ -14,5 +14,22 @@ namespace E_Commerce.Controllers
             var categories = await _categoryService.GetAllAsync();
             return View(categories);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> AddUpdate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUpdate(CategoryVM categoryVM)
+        {
+            await _categoryService.AddAsync(categoryVM);
+            ViewBag.message = "Created category";
+            return View();
+        }
+
+
+
     }
 }

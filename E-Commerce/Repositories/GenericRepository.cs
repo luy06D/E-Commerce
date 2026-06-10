@@ -9,5 +9,27 @@ namespace E_Commerce.Repositories
         {
             return await dbContext.Set<TEntity>().ToListAsync();    
         }
+
+        public async Task AddAsync(TEntity entity)
+        {
+            await dbContext.Set<TEntity>().AddAsync(entity);
+            await dbContext.SaveChangesAsync(); 
+        }
+
+        public async Task<TEntity?> GetByIdAsync(int entityId)
+        {
+            return await dbContext.Set<TEntity>().FindAsync(entityId);
+        }
+        
+        public async Task UpdateAsync(TEntity entity)
+        {
+             dbContext.Set<TEntity>().Update(entity);
+            await dbContext.SaveChangesAsync(); 
+        }
+
+        public async Task DeleteAsync(TEntity entity)
+        {
+            dbContext.Set<TEntity>().Remove(entity);
+        }
     }
 }
