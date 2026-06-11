@@ -16,18 +16,23 @@ namespace E_Commerce.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddUpdate()
+        public async Task<IActionResult> AddUpdate(int id)
         {
-            return View();
+            var categoryVM = await _categoryService.GetByIdAsync(id);
+            return View(categoryVM);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddUpdate(CategoryVM categoryVM)
         {
+            ViewBag.message = null;
+            if(!ModelState.IsValid) return View(categoryVM);
             await _categoryService.AddAsync(categoryVM);
             ViewBag.message = "Created category";
             return View();
         }
+
+        
 
 
 

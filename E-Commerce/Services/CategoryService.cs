@@ -28,5 +28,31 @@ namespace E_Commerce.Services
 
             await _categoryRepository.AddAsync(entity);
         }
+
+        public async Task<CategoryVM?>GetByIdAsync(int id)
+        {
+            var category = await _categoryRepository.GetByIdAsync(id);
+            var categoryVM = new CategoryVM();
+
+            if(category != null)
+            {
+                categoryVM.Name = category.Name;   
+                categoryVM.CategoryId = category.CategoryId;    
+            }
+
+            return categoryVM;
+        }
+
+
+        public async Task UpdateAsync(CategoryVM categoryVM)
+        {
+            var entity = new Category
+            {
+                CategoryId = categoryVM.CategoryId,
+                Name = categoryVM.Name,
+            };
+            await _categoryRepository.UpdateAsync(entity);
+        }
+
     }
 }
