@@ -54,5 +54,10 @@ namespace E_Commerce.Services
             await _categoryRepository.UpdateAsync(entity);
         }
 
+        public async Task DeleteAsync(int id )
+        {
+            var category = await _categoryRepository.GetByIdAsync(id);
+            await _categoryRepository.DeleteAsync(category!);    
+        }
     }
 }

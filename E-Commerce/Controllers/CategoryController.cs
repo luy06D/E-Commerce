@@ -27,9 +27,27 @@ namespace E_Commerce.Controllers
         {
             ViewBag.message = null;
             if(!ModelState.IsValid) return View(categoryVM);
-            await _categoryService.AddAsync(categoryVM);
-            ViewBag.message = "Created category";
-            return View();
+
+            if(categoryVM.CategoryId == 0)
+            {
+                await _categoryService.AddAsync(categoryVM);
+                ModelState.Clear();
+                categoryVM = new CategoryVM();  
+                ViewBag.message = "Created category";
+            }
+            else
+            {
+                await _categoryService.UpdateAsync(categoryVM);
+                ViewBag.message = "Update Category"; 
+            }
+
+                return View();
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _categoryService.DeleteAsync(id);
+            return RedirectToAction("Index");   
         }
 
         

@@ -30,6 +30,7 @@ namespace E_Commerce.Repositories
         public async Task DeleteAsync(TEntity entity)
         {
             dbContext.Set<TEntity>().Remove(entity);
+            await dbContext.SaveChangesAsync();
         }
     }
 }
