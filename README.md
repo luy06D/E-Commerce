@@ -9,6 +9,7 @@ _Estas son las herramientas utilizadas en este proyecto._
 * Entity Framework - ORM para trabajar con base de datos.
 * SQL Server       - Base de datos Mysql.
 * Boostrap         - Libreria para estilos.
+* SweetAlert       - Libreria para Alertas (registrar, actualizar , eliminar)
 
 ### Realizar la migración ⚙️
 
